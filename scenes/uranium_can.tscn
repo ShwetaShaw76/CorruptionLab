@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://hvcf0c5uuhb4"]
+
+[ext_resource type="Texture2D" uid="uid://dctc6ykrmjmey" path="res://assets/sprites/uranium-can.png" id="1_7fb7y"]
+[ext_resource type="Script" uid="uid://bghju1binoduf" path="res://scripts/uranium_can.gd" id="1_gjdvk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjdvk"]
+atlas = ExtResource("1_7fb7y")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hst0n"]
+atlas = ExtResource("1_7fb7y")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c4ti"]
+atlas = ExtResource("1_7fb7y")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cidu2"]
+atlas = ExtResource("1_7fb7y")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vycog"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjdvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hst0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c4ti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cidu2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4givx"]
+size = Vector2(19, 28)
+
+[node name="uranium_can" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_gjdvk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vycog")
+autoplay = "default"
+frame_progress = 0.610153
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_4givx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
