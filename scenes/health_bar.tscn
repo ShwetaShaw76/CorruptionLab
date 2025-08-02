@@ -77,9 +77,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="HealthBar" type="Area2D"]
+[node name="Health_Bar" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5xgdr")
-animation = &"0%"
+animation = &"full"
 autoplay = "full"

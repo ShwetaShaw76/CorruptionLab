@@ -4,10 +4,20 @@ extends Area2D
 
 
 
+
 func _on_body_entered(body):
-	print("You died")
-	Engine.time_scale = 0.5
-	body.get_node("CollisionShape2D").queue_free()
+	
+	if body.is_in_group("player"):
+		print("You died")
+		Engine.time_scale = 0.5
+		if body.has_method("play_death_animation"):
+			body.play_death_animation()
+			
+			var health = get_tree().root.get_node("Game/player/HealthBar/Health_Bar")
+			if health.has_method("zero_health"):
+				health.zero_health()
+			
+	
 	timer.start()
 	
 
