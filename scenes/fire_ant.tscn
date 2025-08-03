@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d1n67ka4f83ax" path="res://assets/sprites/fire_ant.png" id="1_of5xt"]
 [ext_resource type="Script" uid="uid://dtok4ymgqi5x8" path="res://scripts/fire_ant.gd" id="1_xxf0o"]
-[ext_resource type="PackedScene" uid="uid://b6c3rmprhdmrr" path="res://scenes/killzone.tscn" id="2_xxf0o"]
+[ext_resource type="PackedScene" uid="uid://crkgpalyx56kq" path="res://scenes/damage_zone.tscn" id="3_xxf0o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xxf0o"]
 atlas = ExtResource("1_of5xt")
@@ -33,7 +33,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_11qme"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxf0o"]
 size = Vector2(26, 20)
 
 [node name="fire_ant" type="Node2D"]
@@ -44,14 +44,13 @@ sprite_frames = SubResource("SpriteFrames_bji86")
 autoplay = "default"
 frame_progress = 0.211249
 
-[node name="Killzone" parent="." instance=ExtResource("2_xxf0o")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_11qme")
-
 [node name="RayCastright" type="RayCast2D" parent="."]
 target_position = Vector2(-19, 0)
 
 [node name="RayCastleft" type="RayCast2D" parent="."]
 target_position = Vector2(19, 0)
+
+[node name="damageZone" parent="." instance=ExtResource("3_xxf0o")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damageZone"]
+shape = SubResource("RectangleShape2D_xxf0o")

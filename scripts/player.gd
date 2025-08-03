@@ -4,6 +4,7 @@ var is_dead = false
 const SPEED = 120.0
 const JUMP_VELOCITY = -350.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 
 func _physics_process(delta: float) -> void:
@@ -57,6 +58,18 @@ func play_death_animation():
 	velocity = Vector2.ZERO
 	print("I'm dead")
 	animated_sprite.play("dying")
+
+	
+func play_damage_animation():
+	print("damage Animation triggered")
+	animated_sprite.play("damage")
+	
+	var sprite = get_tree().root.get_node("Game/fire_ants")
+	collision_shape_2d.disabled = true
+	await get_tree().create_timer(0.6).timeout
+	collision_shape_2d.disabled = false
+	
+	
 	
 	
 	
