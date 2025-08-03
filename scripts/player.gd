@@ -63,8 +63,6 @@ func play_death_animation():
 func play_damage_animation():
 	print("damage Animation triggered")
 	animated_sprite.play("damage")
-	
-	var sprite = get_tree().root.get_node("Game/fire_ants")
 	collision_shape_2d.disabled = true
 	await get_tree().create_timer(0.6).timeout
 	collision_shape_2d.disabled = false
