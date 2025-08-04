@@ -511,7 +511,7 @@ You won!!
 Your collected 
 x coins"
 
-[node name="player" parent="." groups=["player"] instance=ExtResource("1_uwrxv")]
+[node name="player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(29, 41)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="player"]
@@ -893,9 +893,6 @@ text = "Almost got it..."
 
 [node name="fire_ants" type="Node" parent="."]
 
-[node name="fire_ant" parent="fire_ants" instance=ExtResource("11_kvpfn")]
-position = Vector2(151, 51)
-
 [node name="fire_ant2" parent="fire_ants" instance=ExtResource("11_kvpfn")]
 position = Vector2(1122, 83)
 
@@ -910,5 +907,8 @@ position = Vector2(3024, 90)
 
 [node name="fire_ant6" parent="fire_ants" instance=ExtResource("11_kvpfn")]
 position = Vector2(3025, -45)
+
+[node name="fire_ant" parent="fire_ants" instance=ExtResource("11_kvpfn")]
+position = Vector2(152, 51)
 
 [connection signal="timeout" from="player/HealthBar/Timer" to="player/HealthBar" method="_on_timer_timeout"]

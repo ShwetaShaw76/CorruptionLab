@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
+var taking_damage = false
 var is_dead = false
 const SPEED = 120.0
 const JUMP_VELOCITY = -350.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var health_bar: TextureProgressBar = $HealthBar
 
 
 func _physics_process(delta: float) -> void:
@@ -12,6 +14,8 @@ func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
 	
+	if taking_damage:
+		return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -56,16 +60,18 @@ func play_death_animation():
 		return 
 	is_dead = true
 	velocity = Vector2.ZERO
-	print("I'm dead")
 	animated_sprite.play("dying")
 
-	
+
 func play_damage_animation():
+	
 	print("damage Animation triggered")
+	taking_damage = true
 	animated_sprite.play("damage")
-	collision_shape_2d.disabled = true
-	await get_tree().create_timer(0.6).timeout
-	collision_shape_2d.disabled = false
+	health_bar.take_damage()
+	await get_tree().create_timer(0.5).timeout
+	taking_damage = false
+	
 	
 	
 	
