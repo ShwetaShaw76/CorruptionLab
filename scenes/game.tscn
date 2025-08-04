@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://qbkgjh5v648u"]
+[gd_scene load_steps=65 format=3 uid="uid://qbkgjh5v648u"]
 
 [ext_resource type="Script" uid="uid://bmy84h1oqljhk" path="res://scripts/game_manager.gd" id="1_ir15t"]
 [ext_resource type="PackedScene" uid="uid://3wbxnfy85kgg" path="res://scenes/player.tscn" id="1_uwrxv"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dsxbjgglb32bp" path="res://scenes/health_bar.tscn" id="5_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://b7sb5hbiqi57d" path="res://assets/sprites/heathbar.png" id="6_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://buwej6p8f68p" path="res://assets/sprites/top-half.png" id="6_vtaks"]
+[ext_resource type="Texture2D" uid="uid://lrwf1nntr4px" path="res://assets/sprites/corruption-meter.png" id="7_264po"]
 [ext_resource type="Texture2D" uid="uid://dppywp3o0a0pw" path="res://assets/sprites/background.png" id="7_vtaks"]
 [ext_resource type="PackedScene" uid="uid://hvcf0c5uuhb4" path="res://scenes/uranium_can.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://b6c3rmprhdmrr" path="res://scenes/killzone.tscn" id="9_0tnpc"]
@@ -559,7 +560,7 @@ shape = SubResource("WorldBoundaryShape2D_vtaks")
 [node name="Cans" type="Node" parent="."]
 
 [node name="uranium_can" parent="Cans" instance=ExtResource("8_gee14")]
-position = Vector2(242, -46)
+position = Vector2(239, -46)
 
 [node name="uranium_can3" parent="Cans" instance=ExtResource("8_gee14")]
 position = Vector2(560, 25)
@@ -843,8 +844,8 @@ Movement
 "
 
 [node name="Label2" type="Label" parent="Labels"]
-offset_left = 100.0
-offset_right = 219.0
+offset_left = 116.0
+offset_right = 235.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("14_trtic")
 theme_override_font_sizes/font_size = 8
@@ -910,5 +911,44 @@ position = Vector2(3025, -45)
 
 [node name="fire_ant" parent="fire_ants" instance=ExtResource("11_kvpfn")]
 position = Vector2(152, 51)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="UI container" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="corruption guage" type="Control" parent="UI/UI container"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1152.0
+offset_right = -1024.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="UI/UI container/corruption guage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_264po")
+
+[node name="Fill" type="TextureProgressBar" parent="UI/UI container/corruption guage/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 3
 
 [connection signal="timeout" from="player/HealthBar/Timer" to="player/HealthBar" method="_on_timer_timeout"]
