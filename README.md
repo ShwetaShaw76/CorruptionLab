@@ -17,3 +17,7 @@ A pixelart game where you play as a slime trying to escape a lab but there is a 
 # 🕹️Controls
 - Use right and left arrow keys or A and D keys to move left or right
 - Use space to jump
+
+# itch.io link
+- Runnable on browser: https://khushi123.itch.io/corruption-lab-web
+- Apk download : https://khushi123.itch.io/corruption-lab-apk  
