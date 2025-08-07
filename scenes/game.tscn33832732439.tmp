@@ -1,13 +1,15 @@
-[gd_scene load_steps=55 format=3 uid="uid://qbkgjh5v648u"]
+[gd_scene load_steps=67 format=3 uid="uid://qbkgjh5v648u"]
 
-[ext_resource type="PackedScene" uid="uid://dg4opfvjb030w" path="res://others/game_manager.tscn" id="1_264po"]
+[ext_resource type="Script" uid="uid://bmy84h1oqljhk" path="res://scripts/game_manager.gd" id="1_ir15t"]
 [ext_resource type="PackedScene" uid="uid://3wbxnfy85kgg" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://dv0c4tg8s077s" path="res://assets/sprites/centre.png" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://br5kmpek2dirv" path="res://scenes/platform.tscn" id="2_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://cna0lxgku28b6" path="res://assets/sprites/front.png" id="3_u5sy4"]
-[ext_resource type="PackedScene" uid="uid://35gueax3120k" path="res://others/health_bar.tscn" id="4_264po"]
 [ext_resource type="Texture2D" uid="uid://c1vm51o13v4lj" path="res://assets/sprites/Spikes.png" id="4_gee14"]
+[ext_resource type="Script" uid="uid://bjkd2c3eypq15" path="res://scripts/heath_bar.gd" id="4_rysoc"]
 [ext_resource type="Texture2D" uid="uid://dgbipvo6nvyvp" path="res://assets/sprites/top-2.png" id="5_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://dsxbjgglb32bp" path="res://scenes/health_bar.tscn" id="5_ssvqc"]
+[ext_resource type="Texture2D" uid="uid://b7sb5hbiqi57d" path="res://assets/sprites/heathbar.png" id="6_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://buwej6p8f68p" path="res://assets/sprites/top-half.png" id="6_vtaks"]
 [ext_resource type="Texture2D" uid="uid://dppywp3o0a0pw" path="res://assets/sprites/background.png" id="7_vtaks"]
 [ext_resource type="PackedScene" uid="uid://hvcf0c5uuhb4" path="res://scenes/uranium_can.tscn" id="8_gee14"]
@@ -16,12 +18,131 @@
 [ext_resource type="PackedScene" uid="uid://d05dabpcgeogt" path="res://scenes/coin.tscn" id="12_dinhu"]
 [ext_resource type="PackedScene" uid="uid://c602to1w1rcff" path="res://scenes/spikes.tscn" id="13_kvuet"]
 [ext_resource type="FontFile" uid="uid://ckusa15uoc48r" path="res://assets/fonts/PixelOperator8.ttf" id="14_trtic"]
-[ext_resource type="PackedScene" uid="uid://c7o2q6hnf7y2i" path="res://others/ui.tscn" id="17_1kice"]
-[ext_resource type="PackedScene" uid="uid://xjbyhc1f7gh5" path="res://others/canvas_layer.tscn" id="18_5newe"]
-[ext_resource type="Texture2D" uid="uid://cqni0mwd24kp1" path="res://assets/buttons/Screenshot 2025-08-06 235035.png" id="19_37s47"]
-[ext_resource type="Texture2D" uid="uid://7vyr7mkdomt0" path="res://assets/buttons/Screenshot 2025-08-06 235229.png" id="20_bt5mj"]
-[ext_resource type="Texture2D" uid="uid://bbxe826ai0eku" path="res://assets/buttons/Screenshot 2025-08-06 235257.png" id="21_e1j6l"]
-[ext_resource type="PackedScene" uid="uid://dxgqpbu4jvw61" path="res://scenes/next_level.tscn" id="22_37s47"]
+[ext_resource type="Script" uid="uid://3umlo05hln0r" path="res://scripts/corruption_guage.gd" id="19_1kice"]
+[ext_resource type="Texture2D" uid="uid://caw4isayntggk" path="res://assets/sprites/corruption_meter_0.png" id="20_5newe"]
+[ext_resource type="PackedScene" uid="uid://cvq84rsgmo7l" path="res://scenes/pause_m_enu.tscn" id="21_5newe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3kqx"]
+atlas = ExtResource("6_ssvqc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6opq1"]
+atlas = ExtResource("6_ssvqc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tujlf"]
+atlas = ExtResource("6_ssvqc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5oo0i"]
+atlas = ExtResource("6_ssvqc")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kw87"]
+atlas = ExtResource("6_ssvqc")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssvqc"]
+atlas = ExtResource("6_ssvqc")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_264po"]
+atlas = ExtResource("6_ssvqc")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kice"]
+atlas = ExtResource("6_ssvqc")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5newe"]
+atlas = ExtResource("6_ssvqc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37s47"]
+atlas = ExtResource("6_ssvqc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt5mj"]
+atlas = ExtResource("6_ssvqc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s32md"]
+atlas = ExtResource("6_ssvqc")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_264po"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3kqx")
+}],
+"loop": true,
+"name": &"0%",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6opq1")
+}],
+"loop": true,
+"name": &"20%",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tujlf")
+}],
+"loop": true,
+"name": &"40%",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5oo0i")
+}],
+"loop": true,
+"name": &"60%",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kw87")
+}],
+"loop": true,
+"name": &"80%",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssvqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_264po")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kice")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5newe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37s47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt5mj")
+}],
+"loop": true,
+"name": &"dying",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s32md")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvpfn"]
 texture = ExtResource("2_p57ef")
@@ -377,8 +498,21 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
-[node name="GameManager" parent="." instance=ExtResource("1_264po")]
+[node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
+script = ExtResource("1_ir15t")
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+offset_left = 3232.0
+offset_top = -224.0
+offset_right = 3496.0
+offset_bottom = -149.0
+theme_override_fonts/font = ExtResource("14_trtic")
+theme_override_font_sizes/font_size = 16
+text = "Congratualtions!!
+You won!!
+Your collected 
+x coins"
 
 [node name="player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(29, 41)
@@ -392,7 +526,23 @@ zoom = Vector2(4, 4)
 limit_bottom = 280
 position_smoothing_enabled = true
 
-[node name="HealthBar" parent="player" instance=ExtResource("4_264po")]
+[node name="HealthBar" type="TextureProgressBar" parent="player"]
+offset_left = -21.0
+offset_top = -44.0
+offset_right = 19.0
+offset_bottom = -4.0
+script = ExtResource("4_rysoc")
+
+[node name="Health_Bar" parent="player/HealthBar" instance=ExtResource("5_ssvqc")]
+position = Vector2(22, 16)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="player/HealthBar/Health_Bar"]
+sprite_frames = SubResource("SpriteFrames_264po")
+animation = &"full"
+autoplay = "full"
+
+[node name="Timer" type="Timer" parent="player/HealthBar"]
+wait_time = 0.8
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ca42v")
@@ -762,32 +912,62 @@ position = Vector2(3025, -45)
 [node name="fire_ant" parent="fire_ants" instance=ExtResource("11_kvpfn")]
 position = Vector2(152, 51)
 
-[node name="UI" parent="." instance=ExtResource("17_1kice")]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="CanvasLayer" parent="." instance=ExtResource("18_5newe")]
+[node name="UI container" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="NextLevel" parent="." instance=ExtResource("22_37s47")]
-position = Vector2(3342, -167)
+[node name="corruption guage" type="Control" parent="UI/UI container"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1152.0
+offset_right = -1024.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("19_1kice")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-layer = 2
+[node name="Background" type="TextureRect" parent="UI/UI container/corruption guage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_5newe")
 
-[node name="ui_left" type="TouchScreenButton" parent="CanvasLayer2"]
-visibility_layer = 7
-position = Vector2(896, 537)
-scale = Vector2(0.460177, 0.484043)
-texture_normal = ExtResource("19_37s47")
-action = "move_left"
+[node name="Fill" type="TextureProgressBar" parent="UI/UI container/corruption guage/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 3
 
-[node name="ui_right" type="TouchScreenButton" parent="CanvasLayer2"]
-visibility_layer = 7
-position = Vector2(1023, 537)
-scale = Vector2(0.5, 0.473684)
-texture_normal = ExtResource("20_bt5mj")
-action = "move_right"
+[node name="Button" type="Button" parent="UI/UI container"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 63.0
+grow_horizontal = 0
+text = "||"
 
-[node name="ui_jump" type="TouchScreenButton" parent="CanvasLayer2"]
-position = Vector2(168, 513)
-scale = Vector2(0.581395, 0.595855)
-texture_normal = ExtResource("21_e1j6l")
-action = "jump"
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause MEnu" parent="CanvasLayer" instance=ExtResource("21_5newe")]
+
+[connection signal="timeout" from="player/HealthBar/Timer" to="player/HealthBar" method="_on_timer_timeout"]
+[connection signal="corruption_changed" from="UI/UI container/corruption guage" to="player" method="_on_corruption_guage_corruption_changed"]
+[connection signal="pressed" from="UI/UI container/Button" to="GameManager" method="_on_button_pressed"]

@@ -1,5 +1,7 @@
 extends Area2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var corruption_guage: Control = get_tree().current_scene.get_node("UI/UI container/corruption guage")
+
 
 var can_damage := true
 
@@ -10,7 +12,7 @@ func _on_body_entered(body):
 			if body.has_method("play_damage_animation"):
 				body.play_damage_animation()
 			can_damage = false
-			
+	corruption_guage.decrease_corruption()
 			
 
 

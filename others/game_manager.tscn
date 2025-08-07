@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg4opfvjb030w"]
+
+[ext_resource type="Script" uid="uid://bmy84h1oqljhk" path="res://scripts/game_manager.gd" id="1_ir8fw"]
+[ext_resource type="FontFile" uid="uid://ckusa15uoc48r" path="res://assets/fonts/PixelOperator8.ttf" id="2_btxtu"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_ir8fw")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 3232.0
+offset_top = -224.0
+offset_right = 3496.0
+offset_bottom = -149.0
+theme_override_fonts/font = ExtResource("2_btxtu")
+theme_override_font_sizes/font_size = 16
+text = "Congratualtions!!
+You won!!
+Your collected 
+x coins"
+
+[node name="ScoreLabel" type="Label" parent="ScoreLabel"]
+layout_mode = 0
+offset_left = 3232.0
+offset_top = -224.0
+offset_right = 3496.0
+offset_bottom = -149.0
+theme_override_fonts/font = ExtResource("2_btxtu")
+theme_override_font_sizes/font_size = 16
+text = "Congratualtions!!
+You won!!
+Your collected 
+x coins"

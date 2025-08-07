@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7o2q6hnf7y2i"]
+
+[ext_resource type="Script" uid="uid://3umlo05hln0r" path="res://scripts/corruption_guage.gd" id="1_p1sqq"]
+[ext_resource type="Texture2D" uid="uid://caw4isayntggk" path="res://assets/sprites/corruption_meter_0.png" id="2_eo6tj"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="UI container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="corruption guage" type="Control" parent="UI container"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1152.0
+offset_right = -1024.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_p1sqq")
+
+[node name="Background" type="TextureRect" parent="UI container/corruption guage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_eo6tj")
+
+[node name="Fill" type="TextureProgressBar" parent="UI container/corruption guage/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 3
+
+[node name="Button" type="Button" parent="UI container"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 63.0
+grow_horizontal = 0
+text = "||"
+
+[connection signal="pressed" from="UI container/Button" to="UI container/corruption guage" method="_on_button_pressed"]

@@ -2,12 +2,16 @@ extends CharacterBody2D
 
 var taking_damage = false
 var is_dead = false
-const SPEED = 120.0
-const JUMP_VELOCITY = -350.0
+var SPEED = 120.0
+const SPEED_INCREASE = 20.0
+var JUMP_VELOCITY = -350.0
+const JUMP_VELOCITY_DECREASE = 5
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var health_bar: TextureProgressBar = $HealthBar
 
+
+	
 
 func _physics_process(delta: float) -> void:
 	
@@ -77,3 +81,8 @@ func play_damage_animation():
 	
 	
 	
+
+
+func _on_corruption_guage_corruption_changed(new_corruption: int) -> void:
+	SPEED = 120.0 + (new_corruption * SPEED_INCREASE)
+	JUMP_VELOCITY = -350 + (new_corruption * JUMP_VELOCITY_DECREASE)

@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://comjmx61fug2n"]
+
+[ext_resource type="FontFile" uid="uid://ckusa15uoc48r" path="res://assets/fonts/PixelOperator8.ttf" id="1_t6jma"]
+
+[node name="ScoreLabel" type="Label"]
+offset_left = 3232.0
+offset_top = -224.0
+offset_right = 3496.0
+offset_bottom = -149.0
+theme_override_fonts/font = ExtResource("1_t6jma")
+theme_override_font_sizes/font_size = 16
+text = "Congratualtions!!
+You won!!
+Your collected 
+x coins"
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3232.0
+offset_top = -224.0
+offset_right = 3496.0
+offset_bottom = -149.0
+theme_override_fonts/font = ExtResource("1_t6jma")
+theme_override_font_sizes/font_size = 16
+text = "Congratualtions!!
+You won!!
+Your collected 
+x coins"
